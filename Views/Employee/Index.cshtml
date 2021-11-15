@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DapperMVCCRUD.Models.EmployeeModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddOrEdit","Employee")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Empid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "AddOrEdit", new {  id=item.Empid  }) |
+           
+            @Html.ActionLink("Delete", "Delete", new {  id=item.Empid  })
+        </td>
+    </tr>
+}
+
+</table>
